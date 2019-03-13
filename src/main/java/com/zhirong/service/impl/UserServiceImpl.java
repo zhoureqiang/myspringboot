@@ -1,0 +1,57 @@
+package com.zhirong.service.impl;
+
+import com.github.pagehelper.Page;
+import com.zhirong.entity.User;
+import com.zhirong.mapper.UserMapper;
+import com.zhirong.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import javax.jws.WebService;
+import java.util.List;
+
+@Service
+public class UserServiceImpl implements UserService {
+    @Resource
+    UserMapper userMapper;
+
+    @Override
+    public User getUserById(int id) {
+        User user = userMapper.getUserById(id);
+        return user;
+    }
+
+    @Override
+    public List<User> getUserByTel(String tel) {
+        return null;
+    }
+
+    @Override
+    public Page<User> findAll() {
+        Page<User> list = userMapper.findAll();
+        return list;
+    }
+
+    @Override
+    public List<User> findUser(User user) {
+        List<User> list = userMapper.findUser(user);
+        return list;
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        userMapper.deleteUser(id);
+    }
+
+    @Override
+    public void addUser(User user) {
+        userMapper.addUser(user);
+
+    }
+
+    @Override
+    public void editUser(User user) {
+        userMapper.editUser(user);
+    }
+}

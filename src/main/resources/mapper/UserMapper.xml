@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhirong.mapper.UserMapper" >
+ 
+    <resultMap type="com.zhirong.entity.User" id="User">
+        <id property="id" column="id" />
+        <result property="tel" column="tel" />
+        <result property="password" column="password" />
+        <result property="username" column="username" />
+        <result property="name" column="name" />
+        <result property="id_card" column="id_card" />
+        <result property="status" column="status" />
+    </resultMap>
+
+    
+    <select id="getUserById"  resultType="User">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+    
+    <select id="findAll" resultMap="User">
+        select ID,TEL,PASSWORD,USERNAME,NAME,ID_CARD,STATUS from user order by ID<!--limit 0,1 -->
+    </select>
+    
+    <select id="findUser" resultType="User">
+        select * from user
+        <if test="name !=null and name !='' ">
+            where username like concat(concat("%",#{name}),"%")
+        </if>
+
+    </select>
+
+    <select id="addUser">
+        insert into user (username,name,password,tel,id_card) values (#{username},#{name},#{password},#{tel},#{id_card})
+    </select>
+
+    <update id="editUser" parameterType="User">
+         update user
+         set
+         username = #{username},
+         name = #{name},
+         tel = #{tel},
+         id_card = #{id_card},
+         password = #{password}
+         where
+         id = #{id}
+    </update>
+
+    <delete id="deleteUser">
+         delete from user where id = #{id}
+    </delete>
+
+</mapper>

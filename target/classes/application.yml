@@ -1,0 +1,11 @@
+logging:
+  pattern:
+    #格式化，只能输出日期和内容
+    console: "%d - %msg%n"
+  #        配置日志输出位置
+  path: e:/
+  #      配置日志输出文件 ，指定文件名
+  file: e:/sell.log
+server:
+  port: 8688
+
