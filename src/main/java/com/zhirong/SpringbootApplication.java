@@ -27,7 +27,7 @@ import javax.servlet.MultipartConfigElement;
 //@ComponentScan("com.zhirong")
 @EnableScheduling
 public class SpringbootApplication {
-
+//也可以放在这里
 //	@Bean
 //	public MultipartConfigElement multipartConfigElement() {
 //		MultipartConfigFactory factory = new MultipartConfigFactory();
