@@ -18,7 +18,7 @@
     </select>
     
     <select id="findAll" resultMap="User">
-        select ID,TEL,PASSWORD,USERNAME,NAME,ID_CARD,STATUS from user order by ID<!--limit 0,1 -->
+        select ID,TEL,PASSWORD,USERNAME,NAME,ID_CARD,STATUS from user order by ID
     </select>
     
     <select id="findUser" resultType="User">

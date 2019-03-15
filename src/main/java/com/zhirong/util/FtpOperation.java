@@ -1,5 +1,6 @@
 package com.zhirong.util;
 
+import com.alibaba.druid.util.StringUtils;
 import org.apache.commons.net.ftp.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +27,7 @@ import java.util.Date;
  **/
 @Component
 public class FtpOperation {
-    public static final int imageCutSize=300;
+    public static final int imageCutSize=30000;
     private static final Logger log= LoggerFactory.getLogger(FtpOperation.class);
 
     @Value("${ftp.username}")
@@ -42,7 +43,7 @@ public class FtpOperation {
     private int port;
 
     @Value("${ftp.filepath}")
-    private String CURRENT_DIR;     // 文件存放的目录
+    private String CURRENT_DIR = "/hahaha";     // 文件存放的目录
 
     public static final String DIRSPLIT="/";
 
@@ -61,6 +62,7 @@ public class FtpOperation {
     // ftp客户端
     private FTPClient ftpClient = new FTPClient();
 
+
     /**
      *
      * 功能：上传文件附件到文件服务器
@@ -75,9 +77,10 @@ public class FtpOperation {
         boolean returnValue = false;
         // 上传文件
         try {
-
             // 建立连接
             connectToServer();
+            //设置为被动模式
+            ftpClient.enterLocalPassiveMode();
             // 设置传输二进制文件
             setFileType(FTP.BINARY_FILE_TYPE);
             int reply = ftpClient.getReplyCode();
@@ -87,12 +90,18 @@ public class FtpOperation {
                 throw new IOException("failed to connect to the FTP Server:"+ip);
             }
             ftpClient.enterLocalPassiveMode();
-               /* if(StringUtils.checkStr(CURRENT_DIR)){
-                	if(!existDirectory(CURRENT_DIR)){
-                		this.createDirectory(CURRENT_DIR);
-                	}
-                    ftpClient.changeWorkingDirectory(CURRENT_DIR);
-                }*/
+//            ftpClient.makeDirectory(CURRENT_DIR);
+//            ftpClient.changeWorkingDirectory(CURRENT_DIR);
+//            System.out.println("目录创建成功1！");
+            if(!StringUtils.isEmpty(CURRENT_DIR)){
+//                System.out.println("目录创建成功2！");
+                if(!existDirectory(CURRENT_DIR)){
+                    this.createDirectory(CURRENT_DIR);
+//                    System.out.println("目录创建成功3！");
+                }
+                ftpClient.changeWorkingDirectory(CURRENT_DIR);
+
+            }
             // 上传文件到ftp
             returnValue = ftpClient.storeFile(fileName, buffIn);
             if(needDelete){

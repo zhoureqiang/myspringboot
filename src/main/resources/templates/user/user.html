@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
     <title>Title</title>
 
     <link rel="stylesheet" href="../../js/layui/css/layui.css">
@@ -19,7 +19,7 @@
         <button type="button" class="layui-btn" id="loadFile">
             <i class="layui-icon">&#xe67c;</i>文件导入
         </button>
-        <input type="file" id="file" style="display: none">
+        <input type="file" id="file" multiple="multiple" style="display: none">
         <button class="layui-btn" onclick="javascript:window.location.href='/exportExcel'">导出Excel</button>
     </div>
     <div class="layui-inline" style="padding-left: 50%">
@@ -72,6 +72,7 @@
 <div>
     <table id="list"></table>
 </div>
+
 <script src="../../js/jquery.min.js"></script>
 <script src="../../js/layui/layui.js"></script>
 <script src="../../js/layui/lay/modules/upload.js"></script>
@@ -79,7 +80,6 @@
 <script src="../../js/jquery.pagination.js"></script>
 <script src="../../js/highlight.min.js"></script>
 <script src="../../js/user.js"></script>
-
 <script>
 
     // //文件上传
@@ -112,19 +112,30 @@
             var result = document.getElementById("result");
             var src = "data:" + file.type + ";base64," + window.btoa(this.result);
             result.innerHTML = '<img src ="'+src+'"/>';
-            console.log(src);
+            // console.log(src);
         }
 
+        var formdata=new FormData();
+        //formdata.append('name', 'uploadImage');
+        formdata.append('file',$('#file').get(0).files[0]);
+        console.log($('#file').get(0).files[0]);
+        // formdata.append('recid',str);
         $.ajax({
-            url:'/upload/uploadImage',
-            data:file,
-            success:function () {
-                console.log('导入成功！！！')
+            url:'/upload/upload',
+            type:'post',
+            contentType:false,
+            data:formdata,
+            processData:false,
+            success:function(info){
+                console.log("1111111")
+                console.log(info)
+                // $('.backimg').attr('src',JSON.parse(info).msg);
             },
-            error:function () {
-                console.log('导入失败！！！')
+            error:function(err){
+                console.log("0000000")
+                console.log(err)
             }
-        })
+        });
 
     })
 

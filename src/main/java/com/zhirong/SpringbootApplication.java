@@ -7,7 +7,9 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -16,32 +18,25 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.MultipartConfigElement;
 
 
 @ServletComponentScan
 @SpringBootApplication
-@MapperScan("com.zhirong.mapper")
+//@MapperScan("com.zhirong.mapper")
 //@ComponentScan("com.zhirong")
 @EnableScheduling
 public class SpringbootApplication {
-	//注入RedisTemplate
-//	@Autowired
-//	private RedisTemplate redisTemplate = null;
 
-	//定义自定义后初始化方法
-//	@PostConstruct
-//	public void init(){
-//		initRedisTemplate();
+//	@Bean
+//	public MultipartConfigElement multipartConfigElement() {
+//		MultipartConfigFactory factory = new MultipartConfigFactory();
+//		//  单个数据大小
+//		factory.setMaxFileSize("102400KB"); // KB,MB
+//		/// 总上传数据大小
+//		factory.setMaxRequestSize("1024000KB");
+//		return factory.createMultipartConfig();
 //	}
-
-	//设置RedisTemplate的序列化器
-//	private void initRedisTemplate(){
-//		RedisSerializer serializer = redisTemplate.getStringSerializer();
-//		redisTemplate.setKeySerializer(serializer);
-//		redisTemplate.setHashKeySerializer(serializer);
-//	}
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
