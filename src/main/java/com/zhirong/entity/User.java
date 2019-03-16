@@ -1,6 +1,7 @@
 package com.zhirong.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
 
@@ -12,6 +13,16 @@ public class User implements Serializable {
 	private String tel;
 	private  String id_card;
 	private  int status;
+	private List<Role> roles;
+
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 
 	public int getId() {
 		return id;

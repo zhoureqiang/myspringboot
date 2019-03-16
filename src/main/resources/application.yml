@@ -10,8 +10,10 @@ server:
   port: 8688
 
 spring:
+  jpa:
+    show-sql: true
   servlet:
     multipart:
-      max-file-size: 2Mb
-      max-request-size: 2Mb
+      max-file-size: 50Mb
+      max-request-size: 50Mb
 

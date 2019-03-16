@@ -44,22 +44,6 @@ public class UserController {
         @RequestParam指定了请求参数名称
      */
 
-	@RequestMapping("/index")
-	public String getUser(HttpServletRequest request,Model model){
-		return "index";
-	}
-	
-	@RequestMapping("/login")
-	public String getUserById(Integer id,HttpServletRequest request,Model model){
-		return "login";
-	}
-
-	@RequestMapping("/tologin")
-	public String loginUser(){
-//		System.out.println(11111);
-		return "index";
-	}
-
 	@RequestMapping("/user/userpage")
 	public Object userpage(Model model){
 		List<User> users = userService.findAll();

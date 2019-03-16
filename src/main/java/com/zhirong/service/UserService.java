@@ -15,7 +15,7 @@ public interface UserService {
 	public Page<User> findAll();
 	public List<User> findUser(User user);
 
-	public void deleteUser(int id);
-	public void addUser(User user);
-	public void editUser(User user);
+	public int deleteUser(int id);
+	public User addUser(User user);
+	public int editUser(User user);
 }
