@@ -1,28 +1,18 @@
 package com.zhirong.entity;
 
-/**
- * Copyright (C) 2018 思创数码科技股份有限公司
- * <p>
- * 版权所有。
- * <p>
- *
- * @ClassName Permission
- * @Description TODO
- * @Author zhourq
- * @Date 2019/3/15 21:26
- * @Version 1.0
- **/
 public class Permission {
     private String id;
+
     private String permission;
-    private Role role;
+
+    private String roleId;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getPermission() {
@@ -30,14 +20,14 @@ public class Permission {
     }
 
     public void setPermission(String permission) {
-        this.permission = permission;
+        this.permission = permission == null ? null : permission.trim();
     }
 
-    public Role getRole() {
-        return role;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setRoleId(String roleId) {
+        this.roleId = roleId == null ? null : roleId.trim();
     }
 }

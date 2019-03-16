@@ -1,31 +1,26 @@
 package com.zhirong.entity;
 
+import org.apache.ibatis.mapping.FetchType;
+
 import java.util.List;
 
-/**
- * Copyright (C) 2018 思创数码科技股份有限公司
- * <p>
- * 版权所有。
- * <p>
- *
- * @ClassName Role
- * @Description TODO
- * @Author zhourq
- * @Date 2019/3/15 21:23
- * @Version 1.0
- **/
 public class Role {
-
     private String id;
+
     private String roleName;
+
+    private String userId;
+
     private User user;
+
+    private List<Permission> permissions;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getRoleName() {
@@ -33,7 +28,15 @@ public class Role {
     }
 
     public void setRoleName(String roleName) {
-        this.roleName = roleName;
+        this.roleName = roleName == null ? null : roleName.trim();
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
     public User getUser() {
@@ -51,8 +54,4 @@ public class Role {
     public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
-
-    private List<Permission> permissions;
-
-
 }

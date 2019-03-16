@@ -23,7 +23,7 @@ import javax.servlet.MultipartConfigElement;
 
 @ServletComponentScan
 @SpringBootApplication
-//@MapperScan("com.zhirong.mapper")
+@MapperScan("com.zhirong.mapper")
 //@ComponentScan("com.zhirong")
 @EnableScheduling
 public class SpringbootApplication {

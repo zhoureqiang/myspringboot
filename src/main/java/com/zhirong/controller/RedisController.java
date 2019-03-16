@@ -135,7 +135,7 @@ public class RedisController {
     @RequestMapping("/template")
     public String redisExample(){
         User user = new User();
-        user.setId(199999);
+        user.setId("111999");
         user.setName("peter1");
         user.setTel("15570065854");
         userRedisTemplate.opsForValue().set("user1",user);

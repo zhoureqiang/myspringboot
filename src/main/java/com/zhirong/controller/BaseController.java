@@ -65,7 +65,7 @@ public class BaseController {
         User user = list.getList().get(i);
         content[i][0] = user.getName();
         content[i][1] = user.getPassword();
-        content[i][2] = user.getId_card();
+        content[i][2] = user.getIdCard();
         content[i][3] = user.getTel();
         content[i][4] = String.valueOf(user.getStatus());
     }

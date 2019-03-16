@@ -80,13 +80,13 @@ public class UserController {
 
 	@ResponseBody
 	@RequestMapping("/user/deleteUserById")
-	public Object deleteUserById(Integer id){
+	public Object deleteUserById(String id){
 		userService.deleteUser(id);
 		return "success";
 	}
 
 	@RequestMapping("/user/toEditUser/{id}")
-	public Object toEditUser(@PathVariable("id") Integer id,Model model){
+	public Object toEditUser(@PathVariable("id") String id,Model model){
 		User user = userService.getUserById(id);
 		model.addAttribute("user",user);
 		return "user/user_edit";

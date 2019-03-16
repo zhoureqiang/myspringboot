@@ -17,12 +17,12 @@ import javax.jws.WebService;
  * @return
  **/
 public interface UserService {
-	public User getUserById(int id);
+	public User getUserById(String id);
 	public List<User> getUserByTel(String tel);
 	public Page<User> findAll();
 	public List<User> findUser(User user);
 
-	public int deleteUser(int id);
+	public int deleteUser(String id);
 	public User addUser(User user);
 	public int editUser(User user);
 }

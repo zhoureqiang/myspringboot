@@ -1,95 +1,85 @@
 package com.zhirong.entity;
 
-import java.io.Serializable;
 import java.util.List;
 
-public class User implements Serializable {
+public class User {
+    private String id;
 
-	private static final long serialVersionUID = -8628347005682029689L;
-	private int id;
-	private String username;
-	private String password;
-	private String name;
-	private String tel;
-	private  String id_card;
-	private  int status;
-	private List<Role> roles;
+    private String username;
 
+    private String password;
 
-	public List<Role> getRoles() {
-		return roles;
-	}
+    private String name;
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
-	}
+    private String tel;
 
-	public int getId() {
-		return id;
-	}
+    private String idCard;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    private Integer status;
 
-	public String getUsername() {
-		return username;
-	}
+    private List<Role> roles;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public String getTel() {
-		return tel;
-	}
+    public void setPassword(String password) {
+        this.password = password == null ? null : password.trim();
+    }
 
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getId_card() {
-		return id_card;
-	}
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
+    }
 
-	public void setId_card(String id_card) {
-		this.id_card = id_card;
-	}
+    public String getTel() {
+        return tel;
+    }
 
-	public int getStatus() {
-		return status;
-	}
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
+    }
 
-	public void setStatus(int status) {
-		this.status = status;
-	}
+    public String getIdCard() {
+        return idCard;
+    }
 
-	@Override
-	public String toString() {
-		return "User{" +
-				"id=" + id +
-				", username='" + username + '\'' +
-				", password='" + password + '\'' +
-				", name='" + name + '\'' +
-				", tel='" + tel + '\'' +
-				", id_card='" + id_card + '\'' +
-				", status=" + status +
-				'}';
-	}
+    public void setIdCard(String idCard) {
+        this.idCard = idCard == null ? null : idCard.trim();
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }
