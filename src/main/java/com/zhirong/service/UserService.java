@@ -9,6 +9,13 @@ import com.zhirong.entity.User;
 
 import javax.jws.WebService;
 
+/**
+ * @Author zhourq
+ * @Description 用户信息接口
+ * @Date 2019/3/16
+ * @Param
+ * @return
+ **/
 public interface UserService {
 	public User getUserById(int id);
 	public List<User> getUserByTel(String tel);
