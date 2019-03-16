@@ -14,7 +14,7 @@ import javax.servlet.MultipartConfigElement;
  * <p>
  *
  * @ClassName TomcatConfig
- * @Description TODO
+ * @Description 配置tomcat上传文件大小
  * @Author zhourq
  * @Date 2019/3/14 22:59
  * @Version 1.0
@@ -22,8 +22,10 @@ import javax.servlet.MultipartConfigElement;
 @Configuration
 public class TomcatConfig {
 
+    //单个数据大小
     @Value("${spring.server.MaxFileSize}")
     private String MaxFileSize;
+    //总上传数据大小
     @Value("${spring.server.MaxRequestSize}")
     private String MaxRequestSize;
 
